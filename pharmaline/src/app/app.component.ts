@@ -17,10 +17,13 @@ export class AppComponent {
                 items: [
                     [
                         {
+                            label: 'Ajouter un  médicament',
+                            items: [{label: 'Ajouter un médicament',routerLink :'medicaments'}]
+                        },
+                        {
                             label: 'Consultation liste des médicament',
                             items: [{label: 'La liste complète',routerLink :'medicaments'}]
                         },
-                       
                     ],
                    
                 ]
@@ -30,8 +33,8 @@ export class AppComponent {
                 items: [
                     [
                         {
-                            label: 'adresse',
-                            items: [{label: 'Liste des pharmacies', routerLink :'pharmacie'}]
+                            label: 'Ajouter une  pharmacie',
+                            items: [{label: 'Ajouter une pharmacie ',routerLink :'pharmacie'}]
                         },
                         {
                             label: 'médicaments disponibles',
@@ -51,6 +54,10 @@ export class AppComponent {
                 items: [
                     [
                         {
+                            label: 'Ajouter une  pharmacien',
+                            items: [{label: 'Ajouter un pharmacien ',routerLink :'addPharmaciens'}]
+                        },
+                        {
                             label: 'nom',
                             items: [{label: 'Liste des pharmaciens',routerLink :'pharmaciens'}]
                         },
@@ -65,7 +72,7 @@ export class AppComponent {
                     [
                         {
                             label: 'ajout',
-                            items: [{label: 'ajouter  des  catégories',routerLink :'addcategory'}]
+                            items: [{label: 'ajouter  des  catégories',routerLink :'addCategory'}]
                         },
                        
                     ],
@@ -97,4 +104,3 @@ export class AppComponent {
         ]
     }
 }
-8

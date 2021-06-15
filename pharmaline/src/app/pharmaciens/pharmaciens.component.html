@@ -1,1 +1,23 @@
-<p>pharmaciens works!</p>
+<p-panel header="Ajouter un pharmacien">
+    <form [formGroup]="pharmacienForm">
+    <div class="p-fluid">
+        <div class="p-field">
+            <label for="pharmacienName">Nom du pharmacien / ou de la pharmacienne</label>
+            <input id="pharmacienName" type="text" pInputText formControlName="pharmacienName"> 
+        </div>
+        <div class="p-field">
+            <label for="pharmacienPrenom">Prénom du pharmacien / ou de la pharmacienne</label>
+            <input id="pharmacienPrenom" type="text" pInputText formControlName="pharmacienPrenom"> 
+        </div>
+        <div class="p-field">
+            <label for="pharmacienCode">Code du pharmacien / ou de la pharmacienne </label>
+            <input id="pharmacienCode" type="text" pInputText formControlName="pharmacienCode"> 
+        </div>
+        <div class="p-field">
+            <button pButton type="button" (click)="AddPharmacien();" class="p-button-raised p-button-rounded" [disabled]="!pharmacienForm.valid" icon="pi pi-plus"> 
+                 </button>
+        </div>
+        
+    </div>
+</form>
+</p-panel> 

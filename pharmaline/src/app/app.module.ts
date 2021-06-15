@@ -3,14 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-
+// parties modules
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+// partie composantes 
 import {MegaMenuModule} from 'primeng/megamenu';
 import { PharmacieComponent } from './pharmacie/pharmacie.component';
 import { PharmaciensComponent } from './pharmaciens/pharmaciens.component';
 import { MedicamentsComponent } from './medicaments/medicaments.component';
 import { CategoriesComponent } from './categories/categories.component';
-
+// partie primeng
+import {PanelModule} from 'primeng/panel';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +29,13 @@ import { CategoriesComponent } from './categories/categories.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MegaMenuModule
+    MegaMenuModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    PanelModule,
+    InputTextModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

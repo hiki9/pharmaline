@@ -20,10 +20,7 @@ export class AppComponent {
                             label: 'Consultation liste des médicament',
                             items: [{label: 'La liste complète',routerLink :'medicaments'}]
                         },
-                        {
-                            label: 'les catégories de médicament',
-                            items: [{label: 'catégorie'}, ]
-                        }
+                       
                     ],
                    
                 ]
@@ -34,17 +31,16 @@ export class AppComponent {
                     [
                         {
                             label: 'adresse',
-                            items: [{label: 'adresse 1.1', routerLink :'pharmacie'}]
+                            items: [{label: 'Liste des pharmacies', routerLink :'pharmacie'}]
                         },
+                        {
+                            label: 'médicaments disponibles',
+                            items: [{label: 'liste des médicaments', routerLink :'pharmacie'}]
+                        }
+                        
                         
                     ],
-                    [
-                        {
-                            label: 'code',
-                            items: [{label: 'code de la pharmacie'}]
-                        },
-                       
-                    ],
+                    
                     [
                        
                     ]
@@ -56,20 +52,11 @@ export class AppComponent {
                     [
                         {
                             label: 'nom',
-                            items: [{label: 'nom du pharmacien',routerLink :'pharmaciens'}]
+                            items: [{label: 'Liste des pharmaciens',routerLink :'pharmaciens'}]
                         },
-                        {
-                            label: 'prénom',
-                            items: [{label: 'prénom du pharmacien'}]
-                        },
-                        {
-                            label: 'code',
-                            items: [{label: 'code du pharmacien'}]
-                        }
-                    ],
-                    [
                        
-                    ]
+                    ],
+                   
                 ]
             },
             {
@@ -77,18 +64,12 @@ export class AppComponent {
                 items: [
                     [
                         {
-                            label: 'nom',
-                            items: [{label: 'nom de la catégorie',routerLink :'categories'}]
+                            label: 'ajout',
+                            items: [{label: 'ajouter  des  catégories',routerLink :'addcategory'}]
                         },
                        
-                        {
-                            label: 'code',
-                            items: [{label: 'code de la catégorie'}]
-                        }
                     ],
-                    [
-                       
-                    ]
+                    
                 ]
             },
             {

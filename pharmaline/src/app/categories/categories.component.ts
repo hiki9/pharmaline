@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms'
+//import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-
-  constructor() { }
+public categoryForm : FormGroup
+  constructor(private fb:FormBuilder) { 
+    this.categoryForm = this.fb.group({
+      categoryName:['', Validators.required],
+       categoryCode:['', Validators.required]
+    })
+  } 
 
   ngOnInit(): void {
   }
+  AddCategory(){console.log(this.categoryForm.value)}
 
 }

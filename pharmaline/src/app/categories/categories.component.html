@@ -1,1 +1,19 @@
-<p>categories works!</p>
+<p-panel header="Ajouter une Catégorie">
+    <form [formGroup]="categoryForm">
+    <div class="p-fluid">
+        <div class="p-field">
+            <label for="categoryName">Nom de la Catégorie</label>
+            <input id="categoryName" type="text" pInputText formControlName="categoryName"> 
+        </div>
+        <div class="p-field">
+            <label for="categoryCode">Code de la Catégorie</label>
+            <input id="categoryCode" type="text" pInputText formControlName="categoryCode"> 
+        </div>
+        <div class="p-field">
+            <button pButton type="button" (click)="AddCategory();" class="p-button-raised p-button-rounded" [disabled]="!categoryForm.valid" icon="pi pi-plus"> 
+                 </button>
+        </div>
+        
+    </div>
+</form>
+</p-panel> 

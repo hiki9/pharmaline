@@ -10,8 +10,12 @@ export class ApiService {
 
   //add category
   FctAddCategory(dataJson: any) {
+    let Arr =[]
+    let v = JSON.stringify(dataJson);
+    Arr.push(v)
    localStorage.setItem('AllCategories', JSON.stringify(dataJson));
 
+   
   }
   //consult category
   FctGetCategory() {

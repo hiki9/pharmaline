@@ -18,7 +18,7 @@ export class AppComponent {
                     [
                         {
                             label: 'Ajouter un  médicament',
-                            items: [{label: 'Ajouter un médicament',routerLink :'medicaments'}]
+                            items: [{label: 'Ajouter un médicament',routerLink :'add-Medicaments'}]
                         },
                         {
                             label: 'Consultation liste des médicament',
@@ -34,7 +34,7 @@ export class AppComponent {
                     [
                         {
                             label: 'Ajouter une  pharmacie',
-                            items: [{label: 'Ajouter une pharmacie ',routerLink :'pharmacie'}]
+                            items: [{label: 'Ajouter une pharmacie ',routerLink :'add-pharmacie'}]
                         },
                         {
                             label: 'médicaments disponibles',
@@ -55,7 +55,7 @@ export class AppComponent {
                     [
                         {
                             label: 'Ajouter une  pharmacien',
-                            items: [{label: 'Ajouter un pharmacien ',routerLink :'addPharmaciens'}]
+                            items: [{label: 'Ajouter un pharmacien ',routerLink :'add-pharmacien'}]
                         },
                         {
                             label: 'nom',
@@ -72,9 +72,12 @@ export class AppComponent {
                     [
                         {
                             label: 'ajout',
-                            items: [{label: 'ajouter  des  catégories',routerLink :'addCategory'}]
+                            items: [{label: 'ajouter  des  catégories',routerLink :'add-category'}]
                         },
-                       
+                        {
+                            label: 'liste des catégories',
+                            items: [{label: 'lister  des  catégories',routerLink :'categories'}]
+                        },
                     ],
                     
                 ]

@@ -1,0 +1,20 @@
+<p-panel header="Ajouter une catégorie">
+    <form [formGroup]="addCategoryForm">
+    <div class="p-fluid">
+        <div class="p-field">
+            <label for="CategoryName">Nom de la catégorie</label>
+            <input id="addCategoryName" type="text" pInputText formControlName="categorieName"> 
+        </div>
+        <div class="p-field">
+            <label for="categoryCode">Code de la Catégorie</label>
+            <input id="addCategoryCode" type="text" pInputText formControlName="categoryCode"> 
+        </div>
+       
+        <div class="p-field">
+            <button pButton type="button" (click)="AddCategory();" class="p-button-raised p-button-rounded" [disabled]="!addCategoryForm.valid" icon="pi pi-plus"> 
+                 </button>
+        </div>
+        
+    </div>
+</form>
+</p-panel>

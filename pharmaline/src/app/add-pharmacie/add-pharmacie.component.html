@@ -1,0 +1,24 @@
+<p-panel header="Ajouter une pharmacie">
+    <form [formGroup]="addPharmacieForm">
+    <div class="p-fluid">
+        <div class="p-field">
+            <label for="addPharmacieName">Nom de la pharmacie</label>
+            <input id="addPharmacieName" type="text" pInputText formControlName="pharmacieName"> 
+        </div>
+        <div class="p-field">
+            <label for="pharmacieCode">Code de la pharmacie</label>
+            <input id="addPharmacieCode" type="text" pInputText formControlName="pharmacieCode"> 
+        </div>
+        <div class="p-field">
+            <label for="pharmacieAdresse"> adresse  de la pharmacie</label>
+            <input id="addPharmacieAdresse" type="text" pInputText formControlName="pharmacieAdresse"> 
+        </div>
+       
+        <div class="p-field">
+            <button pButton type="button" (click)="AddPharmacie();" class="p-button-raised p-button-rounded" [disabled]="!addPharmacieForm.valid" icon="pi pi-plus"> 
+                 </button>
+        </div>
+        
+    </div>
+</form>
+</p-panel>

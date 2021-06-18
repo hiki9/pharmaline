@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms'
 //import {Observable} from 'rxjs/Observable';
-
+import {ApiService} from '../services/api.service';
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -9,15 +9,20 @@ import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms'
 })
 export class CategoriesComponent implements OnInit {
 public categoryForm : FormGroup
-  constructor(private fb:FormBuilder) { 
+  allcat!: any;
+  toto: any;
+  constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.categoryForm = this.fb.group({
       categoryName:['', Validators.required],
        categoryCode:['', Validators.required]
     })
   } 
 
-  ngOnInit(): void {
+  ngOnInit() {this.apiService.FctGetCategory();
+    this.allcat=this.apiService.FctGetCategory();
+    console.log(this.allcat)
   }
-  AddCategory(){console.log(this.categoryForm.value)}
+  
+
 
 }

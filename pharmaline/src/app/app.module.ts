@@ -17,13 +17,21 @@ import { CategoriesComponent } from './categories/categories.component';
 import {PanelModule} from 'primeng/panel';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { AddMedicamentsComponent } from './add-medicaments/add-medicaments.component';
+import { AddPharmacieComponent } from './add-pharmacie/add-pharmacie.component';
+import { AddPharmacienComponent } from './add-pharmacien/add-pharmacien.component';
 @NgModule({
   declarations: [
     AppComponent,
     PharmacieComponent,
     PharmaciensComponent,
     MedicamentsComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    AddCategoryComponent,
+    AddMedicamentsComponent,
+    AddPharmacieComponent,
+    AddPharmacienComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,17 @@
 <p-panel header="consulter une Catégorie">
-    liste des catégories
 
-    <p *ngFor="let C of allcat">
-       {{C}} 
-    </p>
-</p-panel> 
+
+    <p-table [value]="dataformatted">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Code</th>
+                <th>Categorie name</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-category>
+            <tr>
+                <td>{{category.categorieName}}</td>
+                <td>{{category.categoryCode}}</td>
+            </tr>
+        </ng-template>
+    </p-table>

@@ -11,6 +11,7 @@ export class CategoriesComponent implements OnInit {
 public categoryForm : FormGroup
   allcat!: any;
   toto: any;
+  dataformatted: any;
   constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.categoryForm = this.fb.group({
       categoryName:['', Validators.required],
@@ -21,8 +22,7 @@ public categoryForm : FormGroup
   ngOnInit() {this.apiService.FctGetCategory();
     this.allcat=this.apiService.FctGetCategory();
     console.log(this.allcat)
+    this.dataformatted = JSON.parse(this.allcat);
   }
   
-
-
 }

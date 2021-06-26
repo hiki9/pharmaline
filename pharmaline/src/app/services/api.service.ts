@@ -1,20 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  Arr = []
+  private _key: string = 'categories';
+
+  private arrData: object[] = [];
   constructor(private http: HttpClient) {
+    // this._initializeCategories()
   }
 
+
+  //CATEGORIES
   //add category
   FctAddCategory(dataJson: any) {
-    console.log(dataJson);
+    this.arrData.push(dataJson);
+    this._saveCategory();
 
-    localStorage.setItem('AllCategories', JSON.stringify(dataJson));
+  }
+  private _saveCategory(): void {
+    try {
+      const categories = JSON.stringify(this.arrData);
+      localStorage.setItem('AllCategories', categories);
+    }
+    catch (err) {
+      console.log(err);
 
-
+    }
   }
   //consult category
   FctGetCategory() {
@@ -22,38 +36,52 @@ export class ApiService {
     console.log(result);
     return result;
   }
-  //Add pharmacies
-  FctAddPharmacy(dataJson: any) {
-    console.log(dataJson);
- 
-    localStorage.setItem('AllPharmacies', JSON.stringify(dataJson));
 
-  }
-
+  //PHARMACIENS
   //Add pharmaciens
   FctAddPharmaciens(dataJson: any) {
-    console.log(dataJson);
-    localStorage.setItem('AllPharmaciens', JSON.stringify(dataJson));
+    this.arrData.push(dataJson);
+    this._savePharmaciens();
+  }
+  private _savePharmaciens(): void {
+    try {
+      const pharmaciens = JSON.stringify(this.arrData);
+      localStorage.setItem('Allpharmaciens', pharmaciens);
+    }
+    catch (err) {
+      console.log(err);
 
+    }
   }
 
-
-    //Add Médicaments
-    FctAddMedicaments(dataJson: any) {
-      console.log(dataJson);
-      localStorage.setItem('AllMedicaments', JSON.stringify(dataJson));
-  
+  //PHARMACIES
+  //Add pharmaciens
+  FctAddPharmacy(dataJson: any) {
+    this.arrData.push(dataJson);
+    this._savePharmacie();
+  }
+  private _savePharmacie(): void {
+    try {
+      const pharmacies = JSON.stringify(this.arrData);
+      localStorage.setItem('Allpharmacies', pharmacies);
     }
+    catch (err) {
+      console.log(err);
 
-  //consult pharmacie
+    }
+  }
+ //consult pharmacie
+ FctGetPharmacie() {
+  var result = localStorage.getItem('Allpharmacies');
+  console.log(result);
+  return result;
+}
 
-  //add pharmaciens
+  //Add Médicaments
+  FctAddMedicaments(dataJson: any) {
+    console.log(dataJson);
+    localStorage.setItem('AllMedicaments', JSON.stringify(dataJson));
 
-  //consult pharmaciens
-  // Add medicaments.component
-
-  // liste des Médicaments
-
-  //
+  }
 
 }

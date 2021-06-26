@@ -82,28 +82,7 @@ export class AppComponent {
                     
                 ]
             },
-            {
-                label: 'Settings', icon: 'pi pi-fw pi-cog',
-                items: [
-                    [
-                        {
-                            label: 'Setting 1',
-                            items: [{label: 'Setting 1.1'}, {label: 'Setting 1.2'}]
-                        },
-                        {
-                            label: 'Setting 2',
-                            items: [{label: 'Setting 2.1'}, {label: 'Setting 2.2'}]
-                        },
-                        {
-                            label: 'Setting 3',
-                            items: [{label: 'Setting 3.1'}, {label: 'Setting 3.2'}]
-                        }
-                    ],
-                    [
-                        
-                    ]
-                ]
-            }
+            
         ]
     }
 }

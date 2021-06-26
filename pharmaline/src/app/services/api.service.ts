@@ -15,6 +15,8 @@ export class ApiService {
     Arr.push(v)
    localStorage.setItem('AllCategories', JSON.stringify(dataJson));
 
+   ///localStorage.myMap  = JSON.stringify(Array.from(map.entries))
+
    
   }
   //consult category

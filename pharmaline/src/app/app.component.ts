@@ -13,7 +13,7 @@ export class AppComponent {
     ngOnInit() {
         this.items = [
             {
-                label: 'Médicaments', icon: 'pi pi-fw pi-video',
+                label: 'Médicaments', icon: 'pi pi-fw pi-thumbs-up',
                 items: [
                     [
                         {

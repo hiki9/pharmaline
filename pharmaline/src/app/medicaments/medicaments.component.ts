@@ -25,17 +25,12 @@ localeTest() {
   moment.locale('pt-BR');
   console.log(moment.locale()); // pt-BR
 }
-public medicamentForm : FormGroup
+
   constructor(private fb:FormBuilder, private apiService: ApiService) { 
-    this.medicamentForm = this.fb.group({
-      medicamentName:['', Validators.required],
-      medicamentCode:['', Validators.required],
-      posologie:['', Validators.required],
-    })
+    
   } 
 
   ngOnInit() {
-
     this.allmedicament=this.apiService.FctGetMedicament();
     this.dataformatted = JSON.parse(this.allmedicament);
     console.log(this.dataformatted);

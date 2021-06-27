@@ -20,7 +20,6 @@ import { AddPharmacienComponent } from './add-pharmacien/add-pharmacien.componen
 // partie primeng
 import {PanelModule} from 'primeng/panel';
 import {TableModule} from 'primeng/table';
-import {ToastModule} from 'primeng/toast';
 import {CalendarModule} from 'primeng/calendar';
 import {SliderModule} from 'primeng/slider';
 import {MultiSelectModule} from 'primeng/multiselect';
@@ -37,6 +36,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {InputNumberModule} from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
+import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 

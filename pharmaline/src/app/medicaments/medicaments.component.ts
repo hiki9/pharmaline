@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms'
 //import {Observable} from 'rxjs/Observable';
+import {ApiService} from '../services/api.service';
 import * as moment from 'moment';
 import 'moment/locale/fr';
 @Component({
@@ -9,6 +10,8 @@ import 'moment/locale/fr';
   styleUrls: ['./medicaments.component.css']
 })
 export class MedicamentsComponent implements OnInit {
+  allmedicament: any;
+  dataformatted: any;
   
   test() {
     const date = moment();
@@ -23,7 +26,7 @@ localeTest() {
   console.log(moment.locale()); // pt-BR
 }
 public medicamentForm : FormGroup
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.medicamentForm = this.fb.group({
       medicamentName:['', Validators.required],
       medicamentCode:['', Validators.required],
@@ -31,8 +34,10 @@ public medicamentForm : FormGroup
     })
   } 
 
-  ngOnInit(): void {
-  }
-  AddMedicament(){console.log(this.medicamentForm.value)}
+  ngOnInit() {
 
+    this.allmedicament=this.apiService.FctGetMedicament();
+    this.dataformatted = JSON.parse(this.allmedicament);
+    console.log(this.dataformatted);
+  }
 }

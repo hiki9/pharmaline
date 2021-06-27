@@ -20,7 +20,6 @@ export class AddMedicamentsComponent implements OnInit {
   ngOnInit(): void {
   }
   AddMedicament() {
-
     let dataJson = (this.addMedicamentForm.value)
     this.apiService.FctAddMedicaments(dataJson);
   }

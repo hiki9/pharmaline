@@ -1,23 +1,21 @@
-<p-panel header="Ajouter un médicament">
-    <form [formGroup]="medicamentForm">
-    <div class="p-fluid">
-        <div class="p-field">
-            <label for="medicamentName">Nom du médicaments</label>
-            <input id="medicamentName" type="text" pInputText formControlName="medicamentName"> 
-        </div>
-        <div class="p-field">
-            <label for="medicamentCode">Code du médicament</label>
-            <input id="medicamentCode" type="text" pInputText formControlName="medicamentCode"> 
-        </div>
-        <div class="p-field">
-            <label for="posologie">Posologie du médicament</label>
-            <input id="posologie" type="text" pInputText formControlName="posologie"> 
-        </div>
-        <div class="p-field">
-            <button pButton type="button" (click)="AddMedicament();" class="p-button-raised p-button-rounded" [disabled]="!medicamentForm.valid" icon="pi pi-plus"> 
-                 </button>
-        </div>
-        
-    </div>
-</form>
-</p-panel>
+<p-panel header="consulter un médicament">
+
+
+    <p-table [value]="dataformatted">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nom</th>
+                <th>Code</th>
+                <th>Posologie</th>
+                <th>Date de peremption</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-medicament>
+            <tr>
+                <td>{{medicament.medicamentName|titlecase}}</td>
+                <td>{{medicament.medicamentCode|titlecase}}</td>
+                <td>{{medicament.posologie|titlecase}}</td>
+                <td>{{medicament.datePeremption| date:'long'}}</td>
+            </tr>
+        </ng-template>
+    </p-table>

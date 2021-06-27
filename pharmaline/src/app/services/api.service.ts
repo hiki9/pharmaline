@@ -48,16 +48,22 @@ export class ApiService {
   private _savePharmaciens(): void {
     try {
       const pharmaciens = JSON.stringify(this.arrData);
-      localStorage.setItem('Allpharmaciens', pharmaciens);
+      localStorage.setItem('Allpharmacien', pharmaciens);
     }
     catch (err) {
       console.log(err);
 
     }
   }
+  //consult pharmacie
+  FctGetPharmacien() {
+    var result = localStorage.getItem('Allpharmacien');
+    console.log(result);
+    return result;
+  }
 
   //PHARMACIES
-  //Add pharmaciens
+  //Add pharmacies
   FctAddPharmacy(dataJson: any) {
     this.arrData.push(dataJson);
     this._savePharmacie();

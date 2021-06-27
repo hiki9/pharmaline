@@ -10,7 +10,7 @@ import {ApiService} from '../services/api.service';
 export class CategoriesComponent implements OnInit {
 public categoryForm : FormGroup
   allcat!: any;
-  toto: any;
+ 
   dataformatted: any;
   constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.categoryForm = this.fb.group({

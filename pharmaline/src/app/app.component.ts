@@ -6,7 +6,10 @@ import {MegaMenuItem} from 'primeng/api';
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent { 
+export class AppComponent {
+    title(title: any) {
+      throw new Error('Method not implemented.');
+    } 
     
     items!: MegaMenuItem[];
 
@@ -22,14 +25,14 @@ export class AppComponent {
                         },
                         {
                             label: 'Consultation liste des médicament',
-                            items: [{label: 'La liste complète',routerLink :'medicaments'}]
+                            items: [{label: 'La liste complète des médicaments',routerLink :'medicaments'}]
                         },
                     ],
                    
                 ]
             },
             {
-                label: 'pharmacie', icon: 'pi pi-fw pi-users',
+                label: 'pharmacie', icon: 'pi pi-fw  pi-plus',
                 items: [
                     [
                         {
@@ -37,8 +40,8 @@ export class AppComponent {
                             items: [{label: 'Ajouter une pharmacie ',routerLink :'add-pharmacie'}]
                         },
                         {
-                            label: 'médicaments disponibles',
-                            items: [{label: 'liste des médicaments', routerLink :'pharmacie'}]
+                            label: 'la liste des pharmacies',
+                            items: [{label: 'liste des pharmacies', routerLink :'pharmacie'}]
                         }
                         
                         
@@ -50,7 +53,7 @@ export class AppComponent {
                 ]
             },
             {
-                label: 'pharmaciens', icon: 'pi pi-fw pi-calendar',
+                label: 'pharmaciens', icon: 'pi pi-fw pi-briefcase',
                 items: [
                     [
                         {
@@ -67,7 +70,7 @@ export class AppComponent {
                 ]
             },
             {
-                label: 'catégories', icon: 'pi pi-fw pi-calendar',
+                label: 'catégories', icon: 'pi pi-fw pi-ellipsis-v',
                 items: [
                     [
                         {
@@ -76,7 +79,7 @@ export class AppComponent {
                         },
                         {
                             label: 'liste des catégories',
-                            items: [{label: 'lister  des  catégories',routerLink :'categories'}]
+                            items: [{label: 'lister  les  catégories de médicaments',routerLink :'categories'}]
                         },
                     ],
                     

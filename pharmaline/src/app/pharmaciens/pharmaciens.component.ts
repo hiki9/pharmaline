@@ -9,6 +9,8 @@ import {ApiService} from '../services/api.service';
 })
 export class PharmaciensComponent implements OnInit {
 public pharmacienForm : FormGroup
+allpharmacien!:any;
+dataformatted: any;
   constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.pharmacienForm = this.fb.group({
       pharmacienName:['', Validators.required],
@@ -18,8 +20,10 @@ public pharmacienForm : FormGroup
     })
   } 
 
-  ngOnInit(): void {
-  }
-  AddPharmacien(){console.log(this.pharmacienForm.value)}
+  ngOnInit() {this.apiService.FctGetPharmacien();
+    this.allpharmacien=this.apiService.FctGetPharmacien();
+    
+    this.dataformatted = JSON.parse(this.allpharmacien);
 
 }
+};

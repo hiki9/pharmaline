@@ -11,7 +11,8 @@ export class AddCategoryComponent implements OnInit {
 public addCategoryForm : FormGroup
   constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.addCategoryForm = this.fb.group({
-      categorieName:['', Validators.required],
+      categorieName:['', Validators.required,  Validators.minLength(3),
+      Validators.maxLength(40)],
       categoryCode:['', Validators.required]
     })
   } 

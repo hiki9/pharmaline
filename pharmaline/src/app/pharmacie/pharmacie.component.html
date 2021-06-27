@@ -1,21 +1,23 @@
-<p-panel header="consulter une Catégorie">
-    liste les PHARMACIES
 
-<p-panel header="consulter les pharmacies">
-    <p-table [value]="dataformatted">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Pharmacie</th>
-                <th>Pharmacien</th>
-                <th>Code</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-pharmacy>
-            <tr>
-                <td>{{pharmacy.pharmacieName}}</td>
-                <td>{{pharmacy.pharmacieAdresse}}</td>
-                <td>{{pharmacy.pharmacieCode}}</td>
-            </tr>
-        </ng-template>
-    </p-table>
+    <p-panel header="lister les pharmacies ">
+        <p-table [value]="dataformatted" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="pharmacieName">Nom de la Pharmacie <p-sortIcon field="pharmacieName"></p-sortIcon></th>
+                    <th pSortableColumn="pharmacieAdresse">Adresse  de la Pharmacie <p-sortIcon field="pharmacieAdresse"></p-sortIcon></th>
+                    <th pSortableColumn="pharmacieCode">Code de la Pharmacie <p-sortIcon field="pharmacieCode"></p-sortIcon></th>
+                    
+                </tr>
+            </ng-template>
+    
+            <ng-template pTemplate="body" let-pharmacy>
+                <tr>
+                    <td>{{pharmacy.pharmacieName}}</td>
+                    <td>{{pharmacy.pharmacieAdresse}}</td>
+                    <td>{{pharmacy.pharmacieCode}}</td>
+                    
+                </tr>
+            </ng-template>
+        </p-table>
     

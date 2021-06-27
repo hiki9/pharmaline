@@ -21,7 +21,7 @@ public categoryForm : FormGroup
 
   ngOnInit() {this.apiService.FctGetCategory();
     this.allcat=this.apiService.FctGetCategory();
-    console.log(this.allcat)
+    //console.log(this.allcat)
     this.dataformatted = JSON.parse(this.allcat);
   }
   

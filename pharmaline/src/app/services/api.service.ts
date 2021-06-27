@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { MessageService } from 'primeng/api';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +8,7 @@ export class ApiService {
   private _key: string = 'categories';
 
   private arrData: object[] = [];
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private messageService: MessageService) {
     // this._initializeCategories()
   }
 
@@ -24,9 +24,11 @@ export class ApiService {
     try {
       const categories = JSON.stringify(this.arrData);
       localStorage.setItem('AllCategories', categories);
+      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'OK' });
     }
     catch (err) {
       console.log(err);
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
 
     }
   }
@@ -70,18 +72,38 @@ export class ApiService {
 
     }
   }
- //consult pharmacie
- FctGetPharmacie() {
-  var result = localStorage.getItem('Allpharmacies');
-  console.log(result);
-  return result;
-}
+  //consult pharmacie
+  FctGetPharmacie() {
+    var result = localStorage.getItem('Allpharmacies');
+    console.log(result);
+    return result;
+  }
 
-  //Add Médicaments
+  //MEDICAMENTS
+
+  //add médicaments
   FctAddMedicaments(dataJson: any) {
-    console.log(dataJson);
-    localStorage.setItem('AllMedicaments', JSON.stringify(dataJson));
+    this.arrData.push(dataJson);
+    this._saveMedicaments();
 
+  }
+  private _saveMedicaments(): void {
+    try {
+      const medicaments = JSON.stringify(this.arrData);
+      localStorage.setItem('AllMedicaments', medicaments);
+      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'Me médicament a été correctement ajouté' });
+    }
+    catch (err) {
+      console.log(err);
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'Echec, contacter le helpdesk' });
+
+    }
+  }
+  //consult Médicament
+  FctGetMedicament() {
+    var result = localStorage.getItem('AllMedicaments');
+    console.log(result);
+    return result;
   }
 
 }

@@ -21,7 +21,7 @@ public addCategoryForm : FormGroup
   AddCategory(){
     let dataJson = this.addCategoryForm.value;
     this.apiService.FctAddCategory(dataJson);
-    
+  
    // console.log(this.addCategoryForm.value)}
   }
 }

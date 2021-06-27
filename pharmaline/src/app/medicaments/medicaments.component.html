@@ -1,5 +1,21 @@
-<p-panel header="consulter une Catégorie">
-    liste les MEDICAMENTS
+<p-panel header="consulter un médicament">
+    <p-table [value]="dataformatted" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="medicamentName">Nom <p-sortIcon field="medicamentName"></p-sortIcon></th>
+                <th pSortableColumn="medicamentCode">Code <p-sortIcon field="medicamentCode"></p-sortIcon></th>
+                <th pSortableColumn="posologie">Posologie <p-sortIcon field="posologie"></p-sortIcon></th>
+                <th pSortableColumn="datePeremption">Date de peremption <p-sortIcon field="datePeremption"></p-sortIcon></th>
+            </tr>
+        </ng-template>
 
-   
-</p-panel> 
+        <ng-template pTemplate="body" let-medicament>
+            <tr>
+                <td>{{medicament?.medicamentName|titlecase}}</td>
+                <td>{{medicament?.medicamentCode|titlecase}}</td>
+                <td>{{medicament?.posologie|titlecase}}</td>
+                <td>{{medicament?.datePeremption| date:'long'}}</td>
+            </tr>
+        </ng-template>
+    </p-table>

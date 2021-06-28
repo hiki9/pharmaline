@@ -1,21 +1,33 @@
-
+<p-toast></p-toast>
 <p-panel header="Ajouter un pharmacien">
     <form [formGroup]="addPharmacienForm">
     <div class="p-fluid">
         <div class="p-field">
             <label for="pharmacienName">Nom du pharmacien / ou de la pharmacienne</label>
             <input id="pharmacienName" type="text" pInputText formControlName="pharmacienName"> 
+            <small *ngIf="submitted && f.pharmacienName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="pharmacienPrenom">Prénom du pharmacien / ou de la pharmacienne</label>
             <input id="pharmacienPrenom" type="text" pInputText formControlName="pharmacienPrenom"> 
+            <small *ngIf="submitted && f.pharmacienPrenom.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="pharmacienCode">Code du pharmacien / ou de la pharmacienne </label>
             <input id="pharmacienCode" type="text" pInputText formControlName="pharmacienCode"> 
+            <small *ngIf="submitted && f.pharmacienCode.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
-            <button pButton type="button" (click)="AddPharmacien();" class="p-button-raised p-button-rounded" [disabled]="!addPharmacienForm.valid" icon="pi pi-plus"> 
+            <button pButton type="button" (click)="AddPharmacien();" class="p-button-raised p-button-rounded"  icon="pi pi-plus"> 
                  </button>
         </div>
         

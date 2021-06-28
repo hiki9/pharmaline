@@ -9,7 +9,9 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./add-pharmacien.component.css']
 })
 export class AddPharmacienComponent implements OnInit {
+  submitted : boolean=false;
   public addPharmacienForm: FormGroup
+
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.addPharmacienForm = this.fb.group({
       pharmacienName: ['', Validators.required],
@@ -19,9 +21,17 @@ export class AddPharmacienComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-  AddPharmacien() {
-    let dataJson = (this.addPharmacienForm.value)
-    this.apiService.FctAddPharmaciens(dataJson);
-  }
+  AddPharmacien(){
+    this.submitted = true;
+    const valid = this.addPharmacienForm.valid;
+    if(valid) {
 
+      let dataJson = this.addPharmacienForm.value;
+      this.apiService.FctAddPharmaciens(dataJson);
+    }
+  
+
+  }
+  get f(){
+    return this.addPharmacienForm.controls}
 }

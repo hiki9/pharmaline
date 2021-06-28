@@ -8,6 +8,7 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./add-pharmacie.component.css']
 })
 export class AddPharmacieComponent implements OnInit {
+  submitted : boolean=false;
   public addPharmacieForm: FormGroup
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.addPharmacieForm = this.fb.group({
@@ -19,8 +20,17 @@ export class AddPharmacieComponent implements OnInit {
 
   ngOnInit() {
   }
-  AddPharmacie() {
-    let dataJson = (this.addPharmacieForm.value)
-    this.apiService.FctAddPharmacy(dataJson);
+  AddPharmacie(){
+    this.submitted = true;
+    const valid = this.addPharmacieForm.valid;
+    if(valid) {
+
+      let dataJson = this.addPharmacieForm.value;
+      this.apiService.FctAddPharmacy(dataJson);
+    }
+  
+
   }
+  get f(){
+    return this.addPharmacieForm.controls}
 }

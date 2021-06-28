@@ -9,7 +9,7 @@ export class ApiService {
 
   private arrData: object[] = [];
   constructor(private http: HttpClient, private messageService: MessageService) {
-    // this._initializeCategories()
+   
   }
 
 
@@ -24,7 +24,7 @@ export class ApiService {
     try {
       const categories = JSON.stringify(this.arrData);
       localStorage.setItem('AllCategories', categories);
-      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'OK' });
+      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'ajout effectué' });
     }
     catch (err) {
       console.log(err);
@@ -49,6 +49,7 @@ export class ApiService {
     try {
       const pharmaciens = JSON.stringify(this.arrData);
       localStorage.setItem('Allpharmacien', pharmaciens);
+      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'ajout effectué' });
     }
     catch (err) {
       console.log(err);
@@ -72,6 +73,7 @@ export class ApiService {
     try {
       const pharmacies = JSON.stringify(this.arrData);
       localStorage.setItem('Allpharmacies', pharmacies);
+      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'ajout effectué' });
     }
     catch (err) {
       console.log(err);

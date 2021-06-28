@@ -8,11 +8,11 @@ import {ApiService} from '../services/api.service';
   styleUrls: ['./add-category.component.css']
 })
 export class AddCategoryComponent implements OnInit {
+  submitted : boolean=false;
 public addCategoryForm : FormGroup
   constructor(private fb:FormBuilder, private apiService: ApiService) { 
     this.addCategoryForm = this.fb.group({
-      categorieName:['', Validators.required,  Validators.minLength(3),
-      Validators.maxLength(40)],
+      categorieName:['', Validators.required],
       categoryCode:['', Validators.required]
     })
   } 
@@ -20,11 +20,18 @@ public addCategoryForm : FormGroup
 
   }
   AddCategory(){
-    let dataJson = this.addCategoryForm.value;
-    this.apiService.FctAddCategory(dataJson);
+    this.submitted = true;
+    const valid = this.addCategoryForm.valid;
+    if(valid) {
+
+      let dataJson = this.addCategoryForm.value;
+      this.apiService.FctAddCategory(dataJson);
+    }
   
-   // console.log(this.addCategoryForm.value)}
+
   }
+  get f(){
+    return this.addCategoryForm.controls}
 }
 
  

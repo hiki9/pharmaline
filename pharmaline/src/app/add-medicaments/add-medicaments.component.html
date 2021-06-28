@@ -1,24 +1,41 @@
+<p-toast></p-toast>
 <p-panel header="Ajouter un médicament">
     <form [formGroup]="addMedicamentForm">
     <div class="p-fluid">
         <div class="p-field">
             <label for="medicamentName">Nom du médicaments</label>
             <input id="addMedicamentName" type="text" pInputText formControlName="medicamentName"> 
+            <small *ngIf="submitted && f.medicamentName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="medicamentCode">Code du médicament</label>
             <input id="addMedicamentCode" type="text" pInputText formControlName="medicamentCode"> 
+            <small *ngIf="submitted && f.medicamentCode.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="posologie">Posologie du médicament</label>
             <input id="posologie" type="text" pInputText formControlName="posologie"> 
+            <small *ngIf="submitted && f.posologie.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="datePeremption">Date de péremption du médicament</label>
             <input id="datePeremption" type="date" pInputText formControlName="datePeremption"> 
+            <small *ngIf="submitted && f.datePeremption.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
-            <button pButton type="button" (click)="AddMedicament();" class="p-button-raised p-button-rounded" [disabled]="!addMedicamentForm.valid" icon="pi pi-plus"> 
+            <button pButton type="button" (click)="AddMedicament();" class="p-button-raised p-button-rounded"  icon="pi pi-plus"> 
                  </button>
         </div>
         

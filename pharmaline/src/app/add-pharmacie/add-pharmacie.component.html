@@ -1,21 +1,34 @@
+<p-toast></p-toast>
 <p-panel header="Ajouter une pharmacie">
     <form [formGroup]="addPharmacieForm">
     <div class="p-fluid">
         <div class="p-field">
-            <label for="addPharmacieName">Nom de la pharmacie</label>
+            <label for="pharmacieName">Nom de la pharmacie</label>
             <input id="addPharmacieName" type="text" pInputText formControlName="pharmacieName"> 
+            <small *ngIf="submitted && f.pharmacieName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="pharmacieCode">Code de la pharmacie</label>
             <input id="addPharmacieCode" type="text" pInputText formControlName="pharmacieCode"> 
+            <small *ngIf="submitted && f.pharmacieCode.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
         <div class="p-field">
             <label for="pharmacieAdresse"> adresse  de la pharmacie</label>
             <input id="addPharmacieAdresse" type="text" pInputText formControlName="pharmacieAdresse"> 
+            <small *ngIf="submitted && f.pharmacieAdresse.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
         </div>
        
         <div class="p-field">
-            <button pButton type="button" (click)="AddPharmacie();" class="p-button-raised p-button-rounded" [disabled]="!addPharmacieForm.valid" icon="pi pi-plus"> 
+            <button pButton type="button" (click)="AddPharmacie();" class="p-button-raised p-button-rounded"  icon="pi pi-plus"> 
                  </button>
         </div>
         

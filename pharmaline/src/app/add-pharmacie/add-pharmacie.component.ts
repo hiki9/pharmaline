@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
-//import {Observable} from 'rxjs/Observable';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms'
+
 import { ApiService } from '../services/api.service';
 @Component({
   selector: 'app-add-pharmacie',

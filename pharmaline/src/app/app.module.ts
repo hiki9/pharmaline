@@ -39,6 +39,10 @@ import { ConfirmationService } from 'primeng/api';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
+import { UpdatePharmacyComponent } from './update-pharmacy/update-pharmacy.component';
+import { UpdatePharmacienComponent } from './update-pharmacien/update-pharmacien.component';
+import { UpdateMedicamenComponent } from './update-medicamen/update-medicamen.component';
 
 @NgModule({
   declarations: [
@@ -50,13 +54,19 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     AddCategoryComponent,
     AddMedicamentsComponent,
     AddPharmacieComponent,
-    AddPharmacienComponent
+    AddPharmacienComponent,
+    UpdateCategoryComponent,
+    UpdatePharmacyComponent,
+    UpdatePharmacienComponent,
+    UpdateMedicamenComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MegaMenuModule,
+    DialogModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
@@ -66,6 +76,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     TableModule,
     InputTextModule,
     ButtonModule,
+    ConfirmDialogModule,
   ],
   providers: [MessageService, ConfirmationService],
   bootstrap: [AppComponent]

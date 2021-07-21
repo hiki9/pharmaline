@@ -38,7 +38,10 @@ export class ApiService {
     console.log(result);
     return result;
   }
-
+// update category
+ FctUpdateCategory(){
+   
+ }
   //PHARMACIENS
   //Add pharmaciens
   FctAddPharmaciens(dataJson: any) {
@@ -99,7 +102,7 @@ export class ApiService {
     try {
       const medicaments = JSON.stringify(this.arrData);
       localStorage.setItem('AllMedicaments', medicaments);
-      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'Me médicament a été correctement ajouté' });
+      this.messageService.add({ severity: 'success', summary: 'Service Message', detail: 'Le médicament a été correctement ajouté' });
     }
     catch (err) {
       console.log(err);

@@ -3,9 +3,9 @@
     <form [formGroup]="addCategoryForm">
     <div class="p-fluid">
         <div class="p-field">
-            <label for="categorieName">Nom de la catégorie</label>
-            <input id="categorieName" type="text" pInputText formControlName="categorieName"> 
-            <small *ngIf="submitted && f.categorieName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+            <label for="categoryName">Nom de la catégorie</label>
+            <input id="categoryName" type="text" pInputText formControlName="categoryName"> 
+            <small *ngIf="submitted && f.categoryName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
                 <i class="pi pi-exclamation-triangle p-mr-1"></i>
                 <span> Ce champ est obligatoire </span>
             </small>

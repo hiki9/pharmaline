@@ -63,13 +63,16 @@ hideDialog() {
   this.categoryDialog = false;
   this.submitted = false;
 }
-saveProduct() {
+updateCategory() {
   this.submitted = true;
 
   if (this.categories.categoryName.trim()) {
       if (this.categories.categoryCode) {
           //this.products[this.findIndexById(this.product.id)] = this.product;  
-          console.log(this.categories);            
+          console.log(this.categories); 
+          let dataupdate = this.categories;
+          this.apiService.FctUpdateCategory(dataupdate);
+
           this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
       }
 

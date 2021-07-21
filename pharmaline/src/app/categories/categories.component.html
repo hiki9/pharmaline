@@ -27,25 +27,23 @@
     </ng-template>
   </p-table>
 </p-panel>
-<p-dialog [(visible)]="categoryDialog" [style]="{width: '450px'}" header="Modification de la catégorie" [modal]="true"
-  styleClass="p-fluid">
-  <ng-template pTemplate="content">
-    <div class="p-field">
-      <label for="name">Code </label>
-      <input type="text" pInputText id="categoryCode" [(ngModel)]="categories.categoryCode" required autofocus  readonly/>
-      <!--<small class="p-error" *ngIf="submitted && !categories.categoryName">Name is required.</small>-->
-    </div>
-    <div class="p-field">
-      <label for="code">Name</label>
-      <input type="text" pInputText id="categoryName" [(ngModel)]="categories.categoryName" required autofocus />
-      <!--<small class="p-error" *ngIf="submitted && !categories.categoryCode">Name is required.</small>-->
-    </div>
-
-  </ng-template>
-
-  <ng-template pTemplate="footer">
-    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
-  </ng-template>
+<p-dialog [(visible)]="categoryDialog" [style]="{width: '450px'}" header=" modification de la catégorie" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">  
+        <div class="p-field">
+            <label for="name">Code </label>
+            <input type="text" pInputText id="categoryCode" [(ngModel)]="categories.categoryCode" required autofocus  readonly/>
+            <small class="p-error" *ngIf="submitted && !categories.categoryName">Name is required.</small>
+        </div>        <div class="p-field">
+            <label for="code">Name</label>
+            <input type="text" pInputText id="categoryName" [(ngModel)]="categories.categoryName" required autofocus />
+            <small class="p-error" *ngIf="submitted && !categories.categoryCode">Name is required.</small>
+        </div>
+        
+    </ng-template>
+    
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="updateCategory()"></button>
+    </ng-template>
 </p-dialog>
 <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

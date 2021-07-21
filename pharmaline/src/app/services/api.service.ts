@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,10 +38,14 @@ export class ApiService {
     var result = localStorage.getItem('AllCategories');
     console.log(result);
     return result;
+
   }
 // update category
- FctUpdateCategory(){
-   
+ FctUpdateCategory(dataupdate:any){
+//var result =  localStorage.setItem("AllCategories",dataupdate);
+  //console.log(localStorage.getItem("AllCategories"));
+  
+  //return result;
  }
   //PHARMACIENS
   //Add pharmaciens

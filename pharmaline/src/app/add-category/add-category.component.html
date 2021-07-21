@@ -3,14 +3,6 @@
     <form [formGroup]="addCategoryForm">
     <div class="p-fluid">
         <div class="p-field">
-            <label for="categoryName">Nom de la catégorie</label>
-            <input id="categoryName" type="text" pInputText formControlName="categoryName"> 
-            <small *ngIf="submitted && f.categoryName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
-                <i class="pi pi-exclamation-triangle p-mr-1"></i>
-                <span> Ce champ est obligatoire </span>
-            </small>
-        </div>
-        <div class="p-field">
             <label for="categoryCode">Code de la Catégorie</label>
             <input id="addCategoryCode" type="text" pInputText formControlName="categoryCode"> 
             <small *ngIf="submitted && f.categoryCode.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
@@ -18,6 +10,15 @@
                 <span> Ce champ est obligatoire </span>
             </small>
         </div>
+        <div class="p-field">
+            <label for="categoryName">Nom de la catégorie</label>
+            <input id="categoryName" type="text" pInputText formControlName="categoryName"> 
+            <small *ngIf="submitted && f.categoryName.errors" class="p-invalid p-invalid-icon p-d-flex p-ai-center">
+                <i class="pi pi-exclamation-triangle p-mr-1"></i>
+                <span> Ce champ est obligatoire </span>
+            </small>
+        </div>
+     
        
         <div class="p-field">
             <button pButton type="button" (click)="AddCategory();" class="p-button-raised p-button-rounded"  icon="pi pi-plus"> 

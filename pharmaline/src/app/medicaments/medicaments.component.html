@@ -12,10 +12,45 @@
 
         <ng-template pTemplate="body" let-medicament>
             <tr>
-                <td>{{medicament?.medicamentName|titlecase}}</td>
-                <td>{{medicament?.medicamentCode|titlecase}}</td>
-                <td>{{medicament?.posologie|titlecase}}</td>
-                <td>{{medicament?.datePeremption| date:'long'}}</td>
+                <td>{{medicament.medicamentName|titlecase}}</td>
+                <td>{{medicament.medicamentCode|titlecase}}</td>
+                <td>{{medicament.posologie|titlecase}}</td>
+                <td>{{medicament.datePeremption| date:'long'}}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                      (click)="editMedicament(medicament)"></button></td>
+                  <td> <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                      (click)="deleteMedicament(medicament)"></button>
+                  </td>
             </tr>
         </ng-template>
     </p-table>
+    <p-dialog [(visible)]="medicamentDialog" [style]="{width: '450px'}" header=" modification du médicament" [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">  
+            <div class="p-field">
+                <label for="name">Nom </label>
+                <input type="text" pInputText id="medicamentName" [(ngModel)]="medicament.medicamentName" required autofocus  readonly/>
+                <small class="p-error" *ngIf="submitted && !medicament.medicamentName">Name is required.</small>
+            </div>        <div class="p-field">
+                <label for="code">Code</label>
+                <input type="text" pInputText id="medicamentCode" [(ngModel)]="medicament.medicamentCode" required autofocus />
+                <small class="p-error" *ngIf="submitted && !medicament.medicamentCode">Name is required.</small>
+            </div>
+                <div class="p-field">
+            <label for="posologie">Posologie</label>
+            <input type="text" pInputText id="posologie" [(ngModel)]="medicament.posologie" required autofocus />
+            <small class="p-error" *ngIf="submitted && !medicament.posologie">Name is required.</small>
+        </div>
+           <div class="p-field">
+        <label for="datePeremption">Date de Peremption du médicamet</label>
+        <input type="text" pInputText id="datePeremption" [(ngModel)]="medicament.datePeremption" required autofocus />
+        <small class="p-error" *ngIf="submitted && !medicament.datePeremption">Name is required.</small>
+    </div>
+        </ng-template>
+        
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="updateMedicament(medicament)"></button>
+        </ng-template>
+    </p-dialog>
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

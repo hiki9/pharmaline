@@ -44,7 +44,7 @@ export class ApiService {
  FctUpdateCategory(dataupdate:any){
 //var result =  localStorage.setItem("AllCategories",dataupdate);
   //console.log(localStorage.getItem("AllCategories"));
-  
+
   //return result;
  }
   //PHARMACIENS
@@ -121,5 +121,11 @@ export class ApiService {
     console.log(result);
     return result;
   }
-
+//update Médicament
+FctUpdateMedicament(dataupdate:any){
+  //var result =  localStorage.setItem("AllMedicaments",dataupdate);
+    //console.log(localStorage.getItem("AllMedicaments"));
+  
+    //return result;
+   }
 }

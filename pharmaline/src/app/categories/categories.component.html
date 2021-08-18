@@ -30,11 +30,11 @@
 <p-dialog [(visible)]="categoryDialog" [style]="{width: '450px'}" header=" modification de la catégorie" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">  
         <div class="p-field">
-            <label for="name">Code </label>
+            <label for="code">Code </label>
             <input type="text" pInputText id="categoryCode" [(ngModel)]="categories.categoryCode" required autofocus  readonly/>
             <small class="p-error" *ngIf="submitted && !categories.categoryName">Name is required.</small>
         </div>        <div class="p-field">
-            <label for="code">Name</label>
+            <label for="name">Name</label>
             <input type="text" pInputText id="categoryName" [(ngModel)]="categories.categoryName" required autofocus />
             <small class="p-error" *ngIf="submitted && !categories.categoryCode">Name is required.</small>
         </div>

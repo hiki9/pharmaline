@@ -30,19 +30,20 @@
         <p-dialog [(visible)]="pharmacienDialog" [style]="{width: '450px'}" header=" modification du pharmacien" [modal]="true" styleClass="p-fluid">
             <ng-template pTemplate="content">  
                 <div class="p-field">
+                    <label for="code">code du pharmacien </label>
+                    <input type="text" pInputText id="pharmacienCode" [(ngModel)]="pharmaciens.pharmacienCode" required autofocus  readonly/>
+                    <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienCode">Name is required.</small>
+                </div>
+                <div class="p-field">
                     <label for="name">Nom du pharmacien </label>
-                    <input type="text" pInputText id="pharmacienName" [(ngModel)]="pharmaciens.pharmacienName" required autofocus  readonly/>
+                    <input type="text" pInputText id="pharmacienName" [(ngModel)]="pharmaciens.pharmacienName" required autofocus  />
                     <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienName">Name is required.</small>
                 </div>        <div class="p-field">
                     <label for="prenom">Prénom du pharmacien</label>
                     <input type="text" pInputText id="pharmacienPrenom" [(ngModel)]="pharmaciens.pharmacienPrenom" required autofocus />
                     <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienPrenom">Prenom is required.</small>
                 </div>
-                <div class="p-field">
-                    <label for="code">code du pharmacien </label>
-                    <input type="text" pInputText id="pharmacienCode" [(ngModel)]="pharmaciens.pharmacienCode" required autofocus  readonly/>
-                    <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienCode">Name is required.</small>
-                </div>
+                
             </ng-template>
             
             <ng-template pTemplate="footer">

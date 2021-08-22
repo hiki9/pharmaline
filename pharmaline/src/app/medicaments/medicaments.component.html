@@ -35,16 +35,17 @@
     [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
       <div class="p-field">
-        <label for="name">Nom </label>
-        <input type="text" pInputText id="medicamentName" [(ngModel)]="medicaments.medicamentName" required autofocus
-          readonly />
-        <small class="p-error" *ngIf="submitted && !medicaments.medicamentName">Name is required.</small>
-      </div>
-      <div class="p-field">
         <label for="code">Code</label>
-        <input type="text" pInputText id="medicamentCode" [(ngModel)]="medicaments.medicamentCode" required autofocus />
+        <input type="text" pInputText id="medicamentCode" [(ngModel)]="medicaments.medicamentCode" required autofocus readonly />
         <small class="p-error" *ngIf="submitted && !medicaments.medicamentCode">Name is required.</small>
       </div>
+      <div class="p-field">
+        <label for="name">Nom </label>
+        <input type="text" pInputText id="medicamentName" [(ngModel)]="medicaments.medicamentName" required autofocus
+           />
+        <small class="p-error" *ngIf="submitted && !medicaments.medicamentName">Name is required.</small>
+      </div>
+      
       <div class="p-field">
         <label for="posologie">Posologie</label>
         <input type="text" pInputText id="posologie" [(ngModel)]="medicaments.posologie" required autofocus />

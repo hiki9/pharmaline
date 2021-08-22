@@ -28,20 +28,21 @@
               </p-panel>
               <p-dialog [(visible)]="pharmacyDialog" [style]="{width: '450px'}" header=" modification de la pharmacie" [modal]="true" styleClass="p-fluid">
                   <ng-template pTemplate="content">  
+                    <div class="p-field">
+                        <label for="code">code </label>
+                        <input type="text" pInputText id="pharmacieCode" [(ngModel)]="pharmacie.pharmacieCode" required autofocus  readonly/>
+                        <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieCode">code is required.</small>
+                    </div>
                       <div class="p-field">
                           <label for="name">nom </label>
-                          <input type="text" pInputText id="pharmacieName" [(ngModel)]="pharmacie.pharmacieName" required autofocus  readonly/>
+                          <input type="text" pInputText id="pharmacieName" [(ngModel)]="pharmacie.pharmacieName" required autofocus  />
                           <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieName">Name is required.</small>
                       </div>        <div class="p-field">
                           <label for="adresse">adresse de la pharmacie</label>
                           <input type="text" pInputText id="pharmacieAdresse" [(ngModel)]="pharmacie.pharmacieAdresse" required autofocus />
                           <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieAdresse">adresse is required.</small>
                       </div>
-                      <div class="p-field">
-                        <label for="code">code </label>
-                        <input type="text" pInputText id="pharmacieCode" [(ngModel)]="pharmacie.pharmacieCode" required autofocus  readonly/>
-                        <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieCode">code is required.</small>
-                    </div>  
+                        
                   </ng-template>
                   
                   <ng-template pTemplate="footer">

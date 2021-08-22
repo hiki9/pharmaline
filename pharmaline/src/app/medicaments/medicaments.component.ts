@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Medicaments } from '../model/medicament';
+
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 //import {Observable} from 'rxjs/Observable';
@@ -28,7 +29,7 @@ export class MedicamentsComponent implements OnInit {
   submitted!: boolean;
   dataformatted: Medicaments[] = [];
   medicaments!: Medicaments;
-  medicament: any;
+  //medicament: any;
   constructor(private fb: FormBuilder, private apiService: ApiService, private messageService: MessageService, private confirmationService: ConfirmationService) {
     this.medicamentForm = this.fb.group({
       medicamentName: ['', Validators.required],
@@ -45,16 +46,16 @@ export class MedicamentsComponent implements OnInit {
     this.dataformatted = JSON.parse(this.allmed);
     console.log(this.dataformatted);
   }
-  editMedicament(medicament: any) {
+  editMedicament(medicaments: any) {
     //this. = {...product};
-    console.log(medicament)
-    this.medicaments = medicament;
+    console.log(medicaments)// medicaments??
+    this.medicaments = medicaments;
     console.log(this.medicaments)
     this.medicamentDialog = true;
   }
 
-  deleteMedicament(medicament: any) {
-    console.log(medicament);
+  deleteMedicament(medicaments: any) {
+    console.log(medicaments);
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + + '?',
       header: 'Confirm',
@@ -68,9 +69,9 @@ export class MedicamentsComponent implements OnInit {
   }
 
 
-  updateMedicament(medicament: any){
-    console.log(medicament);
-    this.medicaments = medicament;
+  updateMedicament(medicaments: any){
+    console.log(medicaments);
+    this.medicaments = medicaments;
   }
 
   hideDialog() {

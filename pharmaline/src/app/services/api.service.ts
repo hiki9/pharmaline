@@ -7,7 +7,8 @@ import { MessageService } from 'primeng/api';
 })
 export class ApiService {
   private _key: string = 'categories';
-
+ 
+// PQ NE PAS METTRE LA MEME CHOSE AVEC MEDICAMENT?  private _key: string = 'categories';
   private arrData: object[] = [];
   constructor(private http: HttpClient, private messageService: MessageService) {
    
@@ -61,16 +62,16 @@ export class ApiService {
     }
     catch (err) {
       console.log(err);
-
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
     }
   }
-  //consult pharmacie
+  //consult pharmacien
   FctGetPharmacien() {
     var result = localStorage.getItem('Allpharmacien');
     console.log(result);
     return result;
   }
-
+FctUpdatePharmacien(dataupdate:any) {};
   //PHARMACIES
   //Add pharmacies
   FctAddPharmacy(dataJson: any) {
@@ -85,6 +86,7 @@ export class ApiService {
     }
     catch (err) {
       console.log(err);
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
 
     }
   }
@@ -94,7 +96,7 @@ export class ApiService {
     console.log(result);
     return result;
   }
-
+  FctUpdatePharmacy(dataupdate:any){}
   //MEDICAMENTS
 
   //add médicaments

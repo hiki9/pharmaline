@@ -1,4 +1,5 @@
 export interface Pharmacie {
-    categoryName:any;
-    categoryCode:any;
+    pharmacieName:any;
+    pharmacieAdresse:any;
+    pharmacieCode:any;
 }

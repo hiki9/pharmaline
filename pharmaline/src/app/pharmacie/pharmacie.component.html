@@ -7,17 +7,47 @@
                     <th pSortableColumn="pharmacieName">Nom de la Pharmacie <p-sortIcon field="pharmacieName"></p-sortIcon></th>
                     <th pSortableColumn="pharmacieAdresse">Adresse  de la Pharmacie <p-sortIcon field="pharmacieAdresse"></p-sortIcon></th>
                     <th pSortableColumn="pharmacieCode">Code de la Pharmacie <p-sortIcon field="pharmacieCode"></p-sortIcon></th>
-                    
+                   <th>Update</th> 
+                   <th>Delete</th>
                 </tr>
-            </ng-template>
-    
-            <ng-template pTemplate="body" let-pharmacy>
-                <tr>
-                    <td>{{pharmacy.pharmacieName}}</td>
-                    <td>{{pharmacy.pharmacieAdresse}}</td>
-                    <td>{{pharmacy.pharmacieCode}}</td>
-                    
-                </tr>
-            </ng-template>
-        </p-table>
+                <ng-template pTemplate="body" let-pharmacie></ng-template>
+                    <tr>
+                      <td>{{pharmacie.pharmacieName|titlecase}}</td>
+                      <td>{{pharmacie.pharmacieAdresse|titlecase}}</td>
+                      <td>{{pharmacie.pharmacieCode|titlecase}}</td>
+                      <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                          (click)="editPharmacy(pharmacie)"></button>
+                      <td> <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                          (click)="deletePharmacy(pharmacie)"></button>
+                      </td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </p-panel>
+              <p-dialog [(visible)]="pharmacyDialog" [style]="{width: '450px'}" header=" modification de la pharmacie" [modal]="true" styleClass="p-fluid">
+                  <ng-template pTemplate="content">  
+                      <div class="p-field">
+                          <label for="name">nom </label>
+                          <input type="text" pInputText id="pharmacieName" [(ngModel)]="pharmacie.pharmacieName" required autofocus  readonly/>
+                          <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieName">Name is required.</small>
+                      </div>        <div class="p-field">
+                          <label for="adresse">adresse de la pharmacie</label>
+                          <input type="text" pInputText id="pharmacieAdresse" [(ngModel)]="pharmacie.pharmacieAdresse" required autofocus />
+                          <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieAdresse">adresse is required.</small>
+                      </div>
+                      <div class="p-field">
+                        <label for="code">code </label>
+                        <input type="text" pInputText id="pharmacieCode" [(ngModel)]="pharmacie.pharmacieCode" required autofocus  readonly/>
+                        <small class="p-error" *ngIf="submitted && !pharmacie.pharmacieCode">code is required.</small>
+                    </div>  
+                  </ng-template>
+                  
+                  <ng-template pTemplate="footer">
+                      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="updatePharmacy()"></button>
+                  </ng-template>
+              </p-dialog>
+              <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+              
     

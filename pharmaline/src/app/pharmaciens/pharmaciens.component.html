@@ -12,16 +12,16 @@
                 </tr>
             </ng-template>
 
-            <ng-template pTemplate="body" let-pharmacien>
+            <ng-template pTemplate="body" let-pharmaciens>
               <tr>
-                <td>{{pharmacien.pharmacienName|titlecase}}</td>
-                <td>{{pharmacien.pharmacienPrenom|titlecase}}</td>
-                <td>{{pharmacien.pharmacienCode|titlecase}}</td>
+                <td>{{pharmaciens.pharmacienName|titlecase}}</td>
+                <td>{{pharmaciens.pharmacienPrenom|titlecase}}</td>
+                <td>{{pharmaciens.pharmacienCode|titlecase}}</td>
                 <td>
                   <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
-                    (click)="editPharmacien(pharmacien)"></button></td>
+                    (click)="editPharmacien(pharmaciens)"></button></td>
                 <td> <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                    (click)="deletePharmacien(pharmacien)"></button>
+                    (click)="deletePharmacien(pharmaciens)"></button>
                 </td>
               </tr>
             </ng-template>
@@ -31,17 +31,17 @@
             <ng-template pTemplate="content">  
                 <div class="p-field">
                     <label for="name">Nom du pharmacien </label>
-                    <input type="text" pInputText id="pharmacienName" [(ngModel)]="pharmacien.pharmacienName" required autofocus  readonly/>
-                    <small class="p-error" *ngIf="submitted && !pharmacien.pharmacienName">Name is required.</small>
+                    <input type="text" pInputText id="pharmacienName" [(ngModel)]="pharmaciens.pharmacienName" required autofocus  readonly/>
+                    <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienName">Name is required.</small>
                 </div>        <div class="p-field">
                     <label for="prenom">Prénom du pharmacien</label>
-                    <input type="text" pInputText id="pharmacienPrenom" [(ngModel)]="pharmacien.pharmacienPrenom" required autofocus />
-                    <small class="p-error" *ngIf="submitted && !pharmacien.pharmacienPrenom">Prenom is required.</small>
+                    <input type="text" pInputText id="pharmacienPrenom" [(ngModel)]="pharmaciens.pharmacienPrenom" required autofocus />
+                    <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienPrenom">Prenom is required.</small>
                 </div>
                 <div class="p-field">
                     <label for="code">code du pharmacien </label>
-                    <input type="text" pInputText id="pharmacienCode" [(ngModel)]="pharmacien.pharmacienCode" required autofocus  readonly/>
-                    <small class="p-error" *ngIf="submitted && !pharmacien.pharmacienCode">Name is required.</small>
+                    <input type="text" pInputText id="pharmacienCode" [(ngModel)]="pharmaciens.pharmacienCode" required autofocus  readonly/>
+                    <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienCode">Name is required.</small>
                 </div>
             </ng-template>
             

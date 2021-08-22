@@ -7,11 +7,11 @@ import { MessageService } from 'primeng/api';
 })
 export class ApiService {
   private _key: string = 'categories';
- 
-// PQ NE PAS METTRE LA MEME CHOSE AVEC MEDICAMENT?  private _key: string = 'categories';
+
+  // PQ NE PAS METTRE LA MEME CHOSE AVEC MEDICAMENT?  private _key: string = 'categories';
   private arrData: object[] = [];
   constructor(private http: HttpClient, private messageService: MessageService) {
-   
+
   }
 
 
@@ -41,13 +41,13 @@ export class ApiService {
     return result;
 
   }
-// update category
- FctUpdateCategory(dataupdate:any){
-//var result =  localStorage.setItem("AllCategories",dataupdate);
-  //console.log(localStorage.getItem("AllCategories"));
+  // update category
+  FctUpdateCategory(dataupdate: any) {
+    //var result =  localStorage.setItem("AllCategories",dataupdate);
+    //console.log(localStorage.getItem("AllCategories"));
 
-  //return result;
- }
+    //return result;
+  }
   //PHARMACIENS
   //Add pharmaciens
   FctAddPharmaciens(dataJson: any) {
@@ -71,7 +71,7 @@ export class ApiService {
     console.log(result);
     return result;
   }
-FctUpdatePharmacien(dataupdate:any) {};
+  FctUpdatePharmacien(dataupdate: any) { };
   //PHARMACIES
   //Add pharmacies
   FctAddPharmacy(dataJson: any) {
@@ -96,7 +96,7 @@ FctUpdatePharmacien(dataupdate:any) {};
     console.log(result);
     return result;
   }
-  FctUpdatePharmacy(dataupdate:any){}
+  FctUpdatePharmacy(dataupdate: any) { }
   //MEDICAMENTS
 
   //add médicaments
@@ -123,11 +123,16 @@ FctUpdatePharmacien(dataupdate:any) {};
     console.log(result);
     return result;
   }
-//update Médicament
-FctUpdateMedicament(dataupdate:any){
-  //var result =  localStorage.setItem("AllMedicaments",dataupdate);
-    //console.log(localStorage.getItem("AllMedicaments"));
-  
-    //return result;
-   }
+  //update Médicament
+  // 
+  FctUpdateMedicament(medicaments: any) {
+    console.log(medicaments);
+    var result =  localStorage.setItem("AllMedicaments",dataupdate);
+    console.log(localStorage.getItem("AllMedicaments"));
+
+   return result;
+   // deleteMedicament (medicamentCode: string){
+     // this.medicaments.deleteMedicament(medicamentCode);
+    //}
+  }
 }

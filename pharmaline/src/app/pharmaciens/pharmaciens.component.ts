@@ -23,6 +23,7 @@ export class PharmaciensComponent implements OnInit {
   pharmacienDialog: boolean = false;
 public pharmacienForm : FormGroup
 allpharmacien!:any;
+
 dataformatted: Pharmaciens[]=[];
 pharmaciens!:Pharmaciens;
 submitted!:boolean;

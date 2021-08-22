@@ -10,7 +10,8 @@
                    <th>Update</th> 
                    <th>Delete</th>
                 </tr>
-                <ng-template pTemplate="body" let-pharmacie></ng-template>
+            </ng-template>
+                <ng-template pTemplate="body" let-pharmacie>
                     <tr>
                       <td>{{pharmacie.pharmacieName|titlecase}}</td>
                       <td>{{pharmacie.pharmacieAdresse|titlecase}}</td>

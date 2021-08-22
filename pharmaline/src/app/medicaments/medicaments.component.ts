@@ -48,14 +48,17 @@ export class MedicamentsComponent implements OnInit {
   }
   editMedicament(medicaments: any) {
     //this. = {...product};
+    let id = medicaments.medicamentCode;
     console.log(medicaments)// medicaments??
     this.medicaments = medicaments;
     console.log(this.medicaments)
+    this.apiService.FctUpdateMedicament(medicaments)
     this.medicamentDialog = true;
   }
 
   deleteMedicament(medicaments: any) {
     console.log(medicaments);
+    let id = medicaments.medicamentCode;
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + + '?',
       header: 'Confirm',

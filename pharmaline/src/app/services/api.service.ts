@@ -127,12 +127,7 @@ export class ApiService {
   // 
   FctUpdateMedicament(medicaments: any) {
     console.log(medicaments);
-   //. var result =  localStorage.setItem("AllMedicaments",dataupdate);
-    console.log(localStorage.getItem("AllMedicaments"));
-
-  // return result;
-   // deleteMedicament (medicamentCode: string){
-     // this.medicaments.deleteMedicament(medicamentCode);
-    //}
+    var result =  localStorage.setItem("AllMedicaments",JSON.stringify(medicaments));
+    
   }
 }

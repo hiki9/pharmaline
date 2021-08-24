@@ -50,7 +50,7 @@ export class MedicamentsComponent implements OnInit {
     //this. = {...product};
     let id = medicaments.medicamentCode;
     console.log(medicaments)// medicaments??
-    this.medicaments = medicaments;
+    this.medicaments = {...medicaments};
     console.log(this.medicaments)
     this.apiService.FctUpdateMedicament(medicaments)
     this.medicamentDialog = true;
@@ -72,9 +72,13 @@ export class MedicamentsComponent implements OnInit {
   }
 
 
-  updateMedicament(medicaments: any){
-    console.log(medicaments);
-    this.medicaments = medicaments;
+  updateMedicament(medicament: any){
+    
+    const index = this.dataformatted.findIndex(d  => d.medicamentCode==medicament.medicamentCode); 
+    console.log(index);
+    this.dataformatted[index]=medicament;
+    this.apiService.FctUpdateMedicament(this.dataformatted);
+    this.hideDialog();
   }
 
   hideDialog() {

@@ -8,7 +8,7 @@ import { MessageService } from 'primeng/api';
 export class ApiService {
   private _key: string = 'categories';
 
-  // PQ NE PAS METTRE LA MEME CHOSE AVEC MEDICAMENT?  private _key: string = 'categories';
+ 
   private arrData: object[] = [];
   constructor(private http: HttpClient, private messageService: MessageService) {
 
@@ -42,8 +42,9 @@ export class ApiService {
 
   }
   // update category
-  FctUpdateCategory(dataupdate: any) {
-    //var result =  localStorage.setItem("AllCategories",dataupdate);
+  FctUpdateCategory(categories: any) {
+    console.log(categories);
+    var result =  localStorage.setItem("AllCategories",JSON.stringify(categories));
     //console.log(localStorage.getItem("AllCategories"));
 
     //return result;
@@ -71,7 +72,10 @@ export class ApiService {
     console.log(result);
     return result;
   }
-  FctUpdatePharmacien(dataupdate: any) { };
+  FctUpdatePharmacien(pharmaciens: any) { 
+    console.log(pharmaciens);
+    var result = localStorage.setItem('Allpharmacien',JSON.stringify(pharmaciens));
+  };
   //PHARMACIES
   //Add pharmacies
   FctAddPharmacy(dataJson: any) {
@@ -96,7 +100,10 @@ export class ApiService {
     console.log(result);
     return result;
   }
-  FctUpdatePharmacy(dataupdate: any) { }
+  FctUpdatePharmacy(pharmacie: any) { 
+    console.log(pharmacie);
+    var result = localStorage.setItem('Allpharmacies',JSON.stringify(pharmacie));
+  }
   //MEDICAMENTS
 
   //add médicaments

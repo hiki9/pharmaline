@@ -42,11 +42,12 @@ constructor(private fb:FormBuilder, private apiService: ApiService,private messa
     this.dataformatted = JSON.parse(this.allpharmacien);
     console.log(this.dataformatted);
   }
-  editPharmacien( pharmaciens: any) {
-    //this. = {...product};
+  editPharmacien(pharmaciens: any) {
+    let id = pharmaciens.pharmacienCode;
     console.log(pharmaciens)
-    this.pharmaciens = pharmaciens;
+    this.pharmaciens ={...pharmaciens}; 
     console.log(this.pharmaciens);
+    this.apiService.FctUpdatePharmacien(pharmaciens);
     this.pharmacienDialog = true;
 }
 
@@ -64,27 +65,17 @@ deletePharmacien(pharmaciens : any) {
     });
 }
 
-hideDialog() {
-  this.pharmacienDialog = false;
-  this.submitted = false;
-}
-updatePharmacien() {
-  this.submitted = true;
 
-  if (this.pharmaciens.pharmacienName.trim()) {
-      if (this.pharmaciens.pharmacienCode) {
-          //this.products[this.findIndexById(this.product.id)] = this.product;  
-          console.log(this.pharmaciens); 
-          let dataupdate = this.pharmaciens;
-          this.apiService.FctUpdatePharmacien(dataupdate);
-
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-      }
-
-
-     // this.products = [...this.products];
-     // this.productDialog = false;
-     // this.product = {};
+updatePharmacien(pharmacien: any) {
+  const index = this.dataformatted.findIndex(d => d.pharmacienCode==pharmacien.pharmacienCode);
+  console.log(index);
+  this.dataformatted[index]=pharmacien;
+  this.apiService.FctUpdatePharmacien(this.dataformatted);
+  this.hideDialog();
+  
   }
-}
+  hideDialog() {
+    this.pharmacienDialog = false;
+    this.submitted = false;
+  }
 }

@@ -29,7 +29,7 @@ export class MedicamentsComponent implements OnInit {
   submitted!: boolean;
   dataformatted: Medicaments[] = [];
   medicaments!: Medicaments;
-  //medicament: any;
+  
   constructor(private fb: FormBuilder, private apiService: ApiService, private messageService: MessageService, private confirmationService: ConfirmationService) {
     this.medicamentForm = this.fb.group({
       medicamentName: ['', Validators.required],

@@ -38,11 +38,12 @@ export class PharmacieComponent implements OnInit {
     this.dataformatted = JSON.parse(this.allpharmacie);
     console.log(this.dataformatted);
   }
-  editPharmacy( pharmacie: any) {
-    //this. = {...product};
+  editPharmacy(pharmacie: any) {
+    
+    let id = pharmacie.pharmacieCode;
     console.log(pharmacie)
-    this.pharmacie = pharmacie;
-    console.log(this.pharmacie)
+    this.pharmacie = {...pharmacie};
+    console.log(this.pharmacie);
     this.pharmacyDialog = true;
 }
 
@@ -60,27 +61,16 @@ deletePharmacy(pharmacie : any) {
     });
 }
 
-hideDialog() {
-  this.pharmacyDialog = false;
-  this.submitted = false;
-}
-updatePharmacy() {
-  this.submitted = true;
 
-  if (this.pharmacie.pharmacieName.trim()) {
-      if (this.pharmacie.pharmacieCode) {
-          //this.products[this.findIndexById(this.product.id)] = this.product;  
-          console.log(this.pharmacie); 
-          let dataupdate = this.pharmacie;
-          this.apiService.FctUpdatePharmacy(dataupdate);
-
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-      }
-
-
-     // this.products = [...this.products];
-     // this.productDialog = false;
-     // this.product = {};
+updatePharmacy(pharmaci:any) {
+  const index = this.dataformatted.findIndex(d => d.pharmacieCode==pharmaci.pharmacieCode);
+  console.log(index);
+  this.dataformatted[index]=pharmaci;
+  this.apiService.FctUpdatePharmacy(this.dataformatted);
+  this.hideDialog();}
+  
+  hideDialog() {
+    this.pharmacyDialog = false;
+    this.submitted = false;
   }
-}
 }

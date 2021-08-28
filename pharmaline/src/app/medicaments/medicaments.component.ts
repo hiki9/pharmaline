@@ -64,8 +64,9 @@ export class MedicamentsComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        // this.products = this.products.filter(val => val.id !== product.id);
-        // this.product = {};
+         this.dataformatted = this.dataformatted.filter(val => val.medicamentCode !== medicaments.medicamentCode);
+        // this.product = {}; this.dataformatted = this.dataformatted.filter(val => val.categoryCode !== categories.categoryCode);
+            this.apiService.FctUpdateMedicament(this.dataformatted);
         // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
       }
     });

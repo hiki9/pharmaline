@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { ApiService } from '../services/api.service';
-//import {Observable} from 'rxjs/Observable';
+
 import { Pharmacie } from '../model/pharmacy';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
@@ -54,8 +54,9 @@ deletePharmacy(pharmacie : any) {
         header: 'Confirm',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-           // this.products = this.products.filter(val => val.id !== product.id);
+            this.dataformatted = this.dataformatted.filter(val => val.pharmacieCode !== pharmacie.pharmacieCode);
            // this.product = {};
+           this.apiService.FctUpdatePharmacy(this.dataformatted);
            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
         }
     });

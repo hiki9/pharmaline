@@ -53,9 +53,9 @@ deleteCategory(categories : any) {
         header: 'Confirm',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-           // this.products = this.products.filter(val => val.id !== product.id);
-           // this.product = {};
-           // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+            this.dataformatted = this.dataformatted.filter(val => val.categoryCode !== categories.categoryCode);
+            this.apiService.FctUpdateCategory(this.dataformatted);
+          
         }
     });
 }

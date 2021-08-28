@@ -58,8 +58,9 @@ deletePharmacien(pharmaciens : any) {
         header: 'Confirm',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-           // this.products = this.products.filter(val => val.id !== product.id);
+            this.dataformatted = this.dataformatted.filter(val => val.pharmacienCode !== pharmaciens.pharmacienCode);
            // this.product = {};
+           this.apiService.FctUpdatePharmacien(this.dataformatted);
            // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
         }
     });

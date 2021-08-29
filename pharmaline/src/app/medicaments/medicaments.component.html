@@ -1,21 +1,67 @@
 <p-panel header="consulter un médicament">
-    <p-table [value]="dataformatted" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
-        <ng-template pTemplate="header">
-            <tr>
-                <th pSortableColumn="medicamentName">Nom  du médicament<p-sortIcon field="medicamentName"></p-sortIcon></th>
-                <th pSortableColumn="medicamentCode">Code du médicament <p-sortIcon field="medicamentCode"></p-sortIcon></th>
-                <th pSortableColumn="posologie">Posologie <p-sortIcon field="posologie"></p-sortIcon></th>
-                <th pSortableColumn="datePeremption">Date de peremption du médicament <p-sortIcon field="datePeremption"></p-sortIcon></th>
-            </tr>
-        </ng-template>
-
-        <ng-template pTemplate="body" let-medicament>
-            <tr>
-                <td>{{medicament?.medicamentName|titlecase}}</td>
-                <td>{{medicament?.medicamentCode|titlecase}}</td>
-                <td>{{medicament?.posologie|titlecase}}</td>
-                <td>{{medicament?.datePeremption| date:'long'}}</td>
-            </tr>
-        </ng-template>
+    <p-table [value]="dataformatted" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="medicamentName">Nom <p-sortIcon field="medicamentName"></p-sortIcon>
+          </th>
+          <th pSortableColumn="medicamentCode">Code <p-sortIcon field="medicamentCode"></p-sortIcon>
+          </th>
+          <th pSortableColumn="posologie">Posologie <p-sortIcon field="posologie"></p-sortIcon>
+          </th>
+          <th pSortableColumn="datePeremption">Date de peremption <p-sortIcon field="datePeremption"></p-sortIcon>
+          </th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="body" let-medicaments>
+        <tr>
+          <td>{{medicaments.medicamentName|titlecase}}</td>
+          <td>{{medicaments.medicamentCode|titlecase}}</td>
+          <td>{{medicaments.posologie|titlecase}}</td>
+          <td>{{medicaments.datePeremption| date:'long'}}</td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+              (click)="editMedicament(medicaments)"></button></td>
+          <td> <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+              (click)="deleteMedicament(medicaments)"></button>
+          </td>
+        </tr>
+      </ng-template>
     </p-table>
+    <p-dialog [(visible)]="medicamentDialog" [style]="{width: '450px'}" header=" modification du médicament"
+      [modal]="true" styleClass="p-fluid">
+      <ng-template pTemplate="content">
+        <div class="p-field">
+          <label for="code">Code</label>
+          <input type="text" pInputText id="medicamentCode" [(ngModel)]="medicaments.medicamentCode" required autofocus readonly />
+          <small class="p-error" *ngIf="submitted && !medicaments.medicamentCode">Name is required.</small>
+        </div>
+        <div class="p-field">
+          <label for="name">Nom </label>
+          <input type="text" pInputText id="medicamentName" [(ngModel)]="medicaments.medicamentName" required autofocus
+             />
+          <small class="p-error" *ngIf="submitted && !medicaments.medicamentName">Name is required.</small>
+        </div>
+        
+        <div class="p-field">
+          <label for="posologie">Posologie</label>
+          <input type="text" pInputText id="posologie" [(ngModel)]="medicaments.posologie" required autofocus />
+          <small class="p-error" *ngIf="submitted && !medicaments.posologie">Name is required.</small>
+        </div>
+        <div class="p-field">
+          <label for="datePeremption">Date de Peremption du médicamet</label>
+          <input type="text" pInputText id="datePeremption" [(ngModel)]="medicaments.datePeremption" required autofocus />
+          <small class="p-error" *ngIf="submitted && !medicaments.datePeremption">Name is required.</small>
+        </div>
+      </ng-template>
+  
+      <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text"
+          (click)="updateMedicament(medicaments)"></button>
+      </ng-template>
+    </p-dialog>
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

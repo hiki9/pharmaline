@@ -1,23 +1,53 @@
+<p-panel header="lister les pharmaciens/pharmaciennes ">
+    <p-table [value]="dataformatted" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="pharmacienName">Nom du Pharmacien ou de la pharmacienne <p-sortIcon field="pharmacienName"></p-sortIcon></th>
+                <th pSortableColumn="pharmacienPrenom">Prénom du Pharmacien ou de la pharmacienne <p-sortIcon field="pharmacienPrenom"></p-sortIcon></th>
+                <th pSortableColumn="pharmacienCode">Code du Pharmacien ou de la pharmacienne <p-sortIcon field="pharmacienCode"></p-sortIcon></th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </ng-template>
 
-    <p-panel header="lister les pharmaciens/pharmaciennes ">
-        <p-table [value]="dataformatted" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
-        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th pSortableColumn="pharmacienName">Nom du Pharmacien ou de la pharmacienne <p-sortIcon field="pharmacienName"></p-sortIcon></th>
-                    <th pSortableColumn="pharmacienPrenom">Prénom du Pharmacien ou de la pharmacienne <p-sortIcon field="pharmacienPrenom"></p-sortIcon></th>
-                    <th pSortableColumn="pharmacienCode">Code du Pharmacien ou de la pharmacienne <p-sortIcon field="pharmacienCode"></p-sortIcon></th>
-                    
-                </tr>
-            </ng-template>
-    
-            <ng-template pTemplate="body" let-pharmacien>
-                <tr>
-                    <td>{{pharmacien.pharmacienName}}</td>
-                    <td>{{pharmacien.pharmacienPrenom}}</td>
-                    <td>{{pharmacien.pharmacienCode}}</td>
-                    
-                </tr>
-            </ng-template>
-        </p-table>
-    
+        <ng-template pTemplate="body" let-pharmaciens>
+          <tr>
+            <td>{{pharmaciens.pharmacienName|titlecase}}</td>
+            <td>{{pharmaciens.pharmacienPrenom|titlecase}}</td>
+            <td>{{pharmaciens.pharmacienCode|titlecase}}</td>
+            <td>
+              <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
+                (click)="editPharmacien(pharmaciens)"></button></td>
+            <td> <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                (click)="deletePharmacien(pharmaciens)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-panel>
+    <p-dialog [(visible)]="pharmacienDialog" [style]="{width: '450px'}" header=" modification du pharmacien" [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">  
+            <div class="p-field">
+                <label for="code">code du pharmacien </label>
+                <input type="text" pInputText id="pharmacienCode" [(ngModel)]="pharmaciens.pharmacienCode" required autofocus  readonly/>
+                <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienCode">Name is required.</small>
+            </div>
+            <div class="p-field">
+                <label for="name">Nom du pharmacien </label>
+                <input type="text" pInputText id="pharmacienName" [(ngModel)]="pharmaciens.pharmacienName" required autofocus  />
+                <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienName">Name is required.</small>
+            </div>        <div class="p-field">
+                <label for="prenom">Prénom du pharmacien</label>
+                <input type="text" pInputText id="pharmacienPrenom" [(ngModel)]="pharmaciens.pharmacienPrenom" required autofocus />
+                <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienPrenom">Prenom is required.</small>
+            </div>
+            
+        </ng-template>
+        
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="updatePharmacien(pharmaciens)"></button>
+        </ng-template>
+    </p-dialog>
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

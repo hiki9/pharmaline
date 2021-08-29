@@ -8,9 +8,10 @@ import { MessageService } from 'primeng/api';
 export class ApiService {
   private _key: string = 'categories';
 
+ 
   private arrData: object[] = [];
   constructor(private http: HttpClient, private messageService: MessageService) {
-   
+
   }
 
 
@@ -40,13 +41,14 @@ export class ApiService {
     return result;
 
   }
-// update category
- FctUpdateCategory(dataupdate:any){
-//var result =  localStorage.setItem("AllCategories",dataupdate);
-  //console.log(localStorage.getItem("AllCategories"));
-  
-  //return result;
- }
+  // update category
+  FctUpdateCategory(categories: any) {
+    console.log(categories);
+    var result =  localStorage.setItem("AllCategories",JSON.stringify(categories));
+    //console.log(localStorage.getItem("AllCategories"));
+
+    //return result;
+  }
   //PHARMACIENS
   //Add pharmaciens
   FctAddPharmaciens(dataJson: any) {
@@ -61,16 +63,19 @@ export class ApiService {
     }
     catch (err) {
       console.log(err);
-
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
     }
   }
-  //consult pharmacie
+  //consult pharmacien
   FctGetPharmacien() {
     var result = localStorage.getItem('Allpharmacien');
     console.log(result);
     return result;
   }
-
+  FctUpdatePharmacien(pharmaciens: any) { 
+    console.log(pharmaciens);
+    var result = localStorage.setItem('Allpharmacien',JSON.stringify(pharmaciens));
+  };
   //PHARMACIES
   //Add pharmacies
   FctAddPharmacy(dataJson: any) {
@@ -85,6 +90,7 @@ export class ApiService {
     }
     catch (err) {
       console.log(err);
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
 
     }
   }
@@ -94,7 +100,10 @@ export class ApiService {
     console.log(result);
     return result;
   }
-
+  FctUpdatePharmacy(pharmacie: any) { 
+    console.log(pharmacie);
+    var result = localStorage.setItem('Allpharmacies',JSON.stringify(pharmacie));
+  }
   //MEDICAMENTS
 
   //add médicaments
@@ -121,5 +130,11 @@ export class ApiService {
     console.log(result);
     return result;
   }
-
+  //update Médicament
+  // 
+  FctUpdateMedicament(medicaments: any) {
+    console.log(medicaments);
+    var result =  localStorage.setItem("AllMedicaments",JSON.stringify(medicaments));
+    
+  }
 }

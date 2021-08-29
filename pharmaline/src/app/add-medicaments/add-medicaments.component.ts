@@ -17,7 +17,7 @@ export class AddMedicamentsComponent implements OnInit {
       datePeremption: ['', Validators.required]
     })
   }
-  ngOnInit(): void {
+  ngOnInit(){
   }
   AddMedicament(){
     this.submitted = true;

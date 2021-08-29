@@ -38,10 +38,11 @@ export class CategoriesComponent implements OnInit {
     console.log(this.dataformatted);
   }
   editCategory( categories: any) {
-    //this. = {...product};
+    let id = categories.categoryCode;
     console.log(categories)
-    this.categories = categories;
-    console.log(this.categories)
+    this.categories ={...categories};
+    console.log(this.categories);
+    this.apiService.FctUpdateCategory(categories);
     this.categoryDialog = true;
 }
 
@@ -52,34 +53,26 @@ deleteCategory(categories : any) {
         header: 'Confirm',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-           // this.products = this.products.filter(val => val.id !== product.id);
-           // this.product = {};
-           // this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+            this.dataformatted = this.dataformatted.filter(val => val.categoryCode !== categories.categoryCode);
+            this.apiService.FctUpdateCategory(this.dataformatted);
+          
         }
     });
 }
 
+
+updateCategory(categorie:any) {
+  const index = this.dataformatted.findIndex(d => d.categoryCode==categorie.categoryCode);
+  console.log(index);
+  this.dataformatted[index]=categorie;
+  this.apiService.FctUpdateCategory(this.dataformatted);
+  this.hideDialog();
+}
+  
 hideDialog() {
-  this.categoryDialog = false;
-  this.submitted = false;
+this.categoryDialog= false;
+this.submitted = false;
 }
-updateCategory() {
-  this.submitted = true;
-
-  if (this.categories.categoryName.trim()) {
-      if (this.categories.categoryCode) {
-          //this.products[this.findIndexById(this.product.id)] = this.product;  
-          console.log(this.categories); 
-          let dataupdate = this.categories;
-          this.apiService.FctUpdateCategory(dataupdate);
-
-          this.messageService.add({severity:'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
-      }
 
 
-     // this.products = [...this.products];
-     // this.productDialog = false;
-     // this.product = {};
-  }
-}
 }

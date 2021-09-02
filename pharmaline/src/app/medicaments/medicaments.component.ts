@@ -49,7 +49,7 @@ export class MedicamentsComponent implements OnInit {
   editMedicament(medicaments: any) {
     //this. = {...product};
     let id = medicaments.medicamentCode;
-    console.log(medicaments)// medicaments??
+    console.log(medicaments)
     this.medicaments = {...medicaments};
     console.log(this.medicaments)
     this.apiService.FctUpdateMedicament(medicaments)

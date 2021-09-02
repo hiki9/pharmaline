@@ -9,6 +9,7 @@
           </th>
           <th pSortableColumn="posologie">Posologie <p-sortIcon field="posologie"></p-sortIcon>
           </th>
+         
           <th pSortableColumn="datePeremption">Date de peremption <p-sortIcon field="datePeremption"></p-sortIcon>
           </th>
           <th>Update</th>
@@ -21,6 +22,7 @@
           <td>{{medicaments.medicamentName|titlecase}}</td>
           <td>{{medicaments.medicamentCode|titlecase}}</td>
           <td>{{medicaments.posologie|titlecase}}</td>
+          
           <td>{{medicaments.datePeremption| date:'long'}}</td>
           <td>
             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
@@ -37,7 +39,7 @@
         <div class="p-field">
           <label for="code">Code</label>
           <input type="text" pInputText id="medicamentCode" [(ngModel)]="medicaments.medicamentCode" required autofocus readonly />
-          <small class="p-error" *ngIf="submitted && !medicaments.medicamentCode">Name is required.</small>
+          <small class="p-error" *ngIf="submitted && !medicaments.medicamentCode">code is required.</small>
         </div>
         <div class="p-field">
           <label for="name">Nom </label>
@@ -49,12 +51,13 @@
         <div class="p-field">
           <label for="posologie">Posologie</label>
           <input type="text" pInputText id="posologie" [(ngModel)]="medicaments.posologie" required autofocus />
-          <small class="p-error" *ngIf="submitted && !medicaments.posologie">Name is required.</small>
+          <small class="p-error" *ngIf="submitted && !medicaments.posologie">posologie is required.</small>
         </div>
+        
         <div class="p-field">
           <label for="datePeremption">Date de Peremption du médicamet</label>
           <input type="text" pInputText id="datePeremption" [(ngModel)]="medicaments.datePeremption" required autofocus />
-          <small class="p-error" *ngIf="submitted && !medicaments.datePeremption">Name is required.</small>
+          <small class="p-error" *ngIf="submitted && !medicaments.datePeremption">date is required.</small>
         </div>
       </ng-template>
   

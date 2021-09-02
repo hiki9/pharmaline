@@ -44,6 +44,7 @@ export class PharmacieComponent implements OnInit {
     console.log(pharmacie)
     this.pharmacie = {...pharmacie};
     console.log(this.pharmacie);
+    this.apiService.FctUpdatePharmacy(pharmacie)
     this.pharmacyDialog = true;
 }
 

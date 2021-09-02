@@ -30,7 +30,7 @@ export class ApiService {
     }
     catch (err) {
       console.log(err);
-      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'contactez le help desk' });
 
     }
   }
@@ -45,9 +45,9 @@ export class ApiService {
   FctUpdateCategory(categories: any) {
     console.log(categories);
     var result =  localStorage.setItem("AllCategories",JSON.stringify(categories));
-    //console.log(localStorage.getItem("AllCategories"));
+   
 
-    //return result;
+    
   }
   //PHARMACIENS
   //Add pharmaciens
@@ -90,7 +90,7 @@ export class ApiService {
     }
     catch (err) {
       console.log(err);
-      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'NOK' });
+      this.messageService.add({ severity: 'warning', summary: 'Service Message', detail: 'contactez le help desk' });
 
     }
   }
@@ -100,6 +100,7 @@ export class ApiService {
     console.log(result);
     return result;
   }
+  //update pharmacie
   FctUpdatePharmacy(pharmacie: any) { 
     console.log(pharmacie);
     var result = localStorage.setItem('Allpharmacies',JSON.stringify(pharmacie));

@@ -18,6 +18,7 @@ import { AddMedicamentsComponent } from './add-medicaments/add-medicaments.compo
 import { AddPharmacieComponent } from './add-pharmacie/add-pharmacie.component';
 import { AddPharmacienComponent } from './add-pharmacien/add-pharmacien.component';
 // partie primeng
+import {DropdownModule} from 'primeng/dropdown';
 import {PanelModule} from 'primeng/panel';
 import {TableModule} from 'primeng/table';
 import {CalendarModule} from 'primeng/calendar';
@@ -26,7 +27,6 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {ContextMenuModule} from 'primeng/contextmenu';
 import {DialogModule} from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
-import {DropdownModule} from 'primeng/dropdown';
 import {ProgressBarModule} from 'primeng/progressbar';
 import {InputTextModule} from 'primeng/inputtext';
 import {FileUploadModule} from 'primeng/fileupload';
@@ -63,6 +63,7 @@ import { UpdateMedicamenComponent } from './update-medicamen/update-medicamen.co
   ],
   imports: [
     BrowserModule,
+    DropdownModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MegaMenuModule,

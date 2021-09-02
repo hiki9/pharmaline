@@ -37,12 +37,12 @@ export class CategoriesComponent implements OnInit {
     this.dataformatted = JSON.parse(this.allcat);
     console.log(this.dataformatted);
   }
-  editCategory( categories: any) {
+  editCategory(categories: any) {
     let id = categories.categoryCode;
     console.log(categories)
     this.categories ={...categories};
-    console.log(this.categories);
-    this.apiService.FctUpdateCategory(categories);
+    console.log(this.categories)
+    this.apiService.FctUpdateCategory(categories)
     this.categoryDialog = true;
 }
 

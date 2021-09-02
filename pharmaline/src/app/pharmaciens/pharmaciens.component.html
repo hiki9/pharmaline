@@ -31,7 +31,7 @@
             <div class="p-field">
                 <label for="code">code du pharmacien </label>
                 <input type="text" pInputText id="pharmacienCode" [(ngModel)]="pharmaciens.pharmacienCode" required autofocus  readonly/>
-                <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienCode">Name is required.</small>
+                <small class="p-error" *ngIf="submitted && !pharmaciens.pharmacienCode">Code is required.</small>
             </div>
             <div class="p-field">
                 <label for="name">Nom du pharmacien </label>
